@@ -16,15 +16,23 @@ public class calcInterface {
         TextPrompt tp1 = new TextPrompt("Enter Calculation",t1);
         JLabel header = new JLabel("Calculator");
         Button submit = new Button("Submit");
-        t1.setBounds(50, 100, 200, 30);
-        header.setBounds(50,50,200,30);
-        submit.setBounds(50, 150, 200, 30);
-        ans.setBounds(50,200,200,30);
+        t1.setBounds(80, 100, 200, 30);
+        header.setBounds(80,50,200,30);
+        submit.setBounds(80, 150, 200, 30);
+        ans.setBounds(80,200,200,30);
         submit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println(isValidExpression(t1.getText()));
-                ans.setText(t1.getText()); // Calculator action or error
+                if(t1.getText().trim() == "" || !isValidExpression(t1.getText()))
+                {
+                    ans.setText("Please enter a valid expression");
+                    ans.setForeground(Color.red);
+                }
+                else {
+                    ans.setForeground(Color.black);
+                    ans.setText(t1.getText());//calc function
+                }
             }
         });
         f.add(ans);
@@ -50,7 +58,7 @@ public class calcInterface {
      * @param expression
      * @return true if the string is a valid arithmetic expression, false if not
      */
-    private static boolean isValidExpression(String expression){
+    public static boolean isValidExpression(String expression){
         //check if expression is only numbers and operators
         for(int i = 0; i < expression.length();i++)
         {
