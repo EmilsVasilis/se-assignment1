@@ -31,7 +31,7 @@ public class calcInterface {
                 }
                 else {
                     ans.setForeground(Color.black);
-                    ans.setText(t1.getText());//calc function
+                    ans.setText(Integer.toString(Parser.parseString(t1.getText())));//calc function
                 }
             }
         });
