@@ -4,10 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class calcInterface {
-    calc calculator;
-    calcInterface() {
-        calculator = new calc();
-    }
     public void draw () {
         Frame f = new Frame("Calculator");
         JLabel ans = new JLabel();
